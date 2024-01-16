@@ -26,12 +26,12 @@
                                 <td class="py-3 text-center">{{$user->name}}</td>
                                 <td class="py-3 text-center">{{$user->email}}</td>
                                 <td class="py-3 text-center">
-                                    {{-- @foreach ($user->domains as $domain)
-                                    {{ $domain->domain }}{{ $loop->last ? '': ','}}
-                                    @endforeach --}}
+                                    @foreach ($user->roles as $role)
+                                    {{ $role->name }}{{ $loop->last ? '': ','}}
+                                    @endforeach
                                 </td>
                                 <td class="py-2 text-center">
-                                    <x-btn-link class="focus:outline-none text-white bg-red-500 hover:bg-red-500 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900">Delete</x-btn-link>
+                                    <x-btn-link href="{{ route('users.edit', $user->id) }}" class="focus:outline-none text-white bg-white-500 hover:bg-white-500 focus:ring-4 focus:ring-white-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-white-500 dark:hover:bg-white-600 dark:focus:ring-white-900">Edit</x-btn-link>
                                 </td>
                             </tr>
                             @endforeach
